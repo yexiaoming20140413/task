@@ -1,0 +1,10 @@
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/mybatis/mapper/TaskMapper.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/controller/TaskController.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/mybatis/model/Task.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/config/ApplicationConfigurerAdapter.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/config/ScheduleConfig.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/controller/TaskStatusController.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/service/TaskService.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/StartServer.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/config/DataBase.java
+/home/xiaoming/work1/longdai-task/longdai-task-master/src/main/java/com/longdai/task/quartz/ScheduledJob.java

@@ -1,0 +1,15 @@
+
+#server configuration
+server:
+  port: 9010
+  address: localhost
+
+datasource:
+  url: jdbc:mysql://172.16.0.10:3300/test_quartz?characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+  username: root
+  password: Lb4uk22BuiYIpj97lpucwFjWyKCYurKGmQinOdFx6X2C/tgw8GmyOQJRMtKHUPxDmv2BKgyTLSIcL+nXKsgHCg==
+  driverClassName: com.mysql.jdbc.Driver
+
+
+
+
