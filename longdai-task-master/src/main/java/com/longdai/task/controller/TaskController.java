@@ -3,12 +3,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.longdai.task.mybatis.mapper.TaskMapper;
 import com.longdai.task.mybatis.model.Task;
 import com.longdai.task.service.TaskService;
+import io.swagger.annotations.ApiOperation;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +34,8 @@ public class TaskController {
     @Autowired
     TaskService taskService;
 
-    @RequestMapping("/query")
+    @RequestMapping(value = "/query",method = RequestMethod.POST)
+    @ApiOperation(value="查询定时任务列表", notes="查询所有定时任务列表")
     public String queryAllTask(){
         String json = "";
         try {
@@ -43,8 +47,7 @@ public class TaskController {
     }
 
     @RequestMapping("/add")
-    public String insertTask(){
-        Task task = getTaskByRequest();
+    public String insertTask(@RequestBody Task task){
         Task dbTask = taskDao.queryTask(task);
         if(null != dbTask){
             return "job is exits!";
@@ -64,8 +67,7 @@ public class TaskController {
     }
 
     @RequestMapping("/del")
-    public String deleteTask(){
-        Task task = getTaskByRequest();
+    public String deleteTask(Task task){
         int status = taskDao.deleteTask(task);
         try{
             if(scheduler.isStarted())
@@ -81,8 +83,7 @@ public class TaskController {
     }
 
     @RequestMapping("/set")
-    public String updateTask(){
-        Task task = getTaskByRequest();
+    public String updateTask(Task task){
         int status = taskDao.updateTask(task);
         try{
             if(scheduler.isStarted())
@@ -97,14 +98,6 @@ public class TaskController {
             return "Update failure!";
     }
 
-    public Task getTaskByRequest(){
-        return new Task(
-                request.getParameter("task_group"),
-                request.getParameter("job_name"),
-                request.getParameter("trigger_name"),
-                request.getParameter("cron_expression"),
-                request.getParameter("app_address"));
-    }
 
 
 }
